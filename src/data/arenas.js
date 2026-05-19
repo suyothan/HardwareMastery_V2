@@ -1,0 +1,193 @@
+export const ARENAS = [
+  {
+    id: 1,
+    name: 'Breadboard Camp',
+    icon: '\uD83E\uDEBB',
+    description: 'Where every journey begins. Simple circuits on a breadboard.',
+    color1: '#8B4513',
+    color2: '#D2691E',
+    accent: '#f4a623',
+    bgGradient: 'linear-gradient(180deg, #1a0f00 0%, #2d1800 50%, #1a1f3a 100%)',
+    trophyRange: [0, 200],
+    unlockRequirement: 0,
+    bosses: ['digital_phantom'],
+    atmosphere: 'Warm campfire glow, breadboard patterns on ground',
+  },
+  {
+    id: 2,
+    name: 'Analog Arena',
+    icon: '\u26A1',
+    description: 'The domain of voltage, current, and resistance.',
+    color1: '#3498db',
+    color2: '#2980b9',
+    accent: '#00d4ff',
+    bgGradient: 'linear-gradient(180deg, #0a1628 0%, #0d2847 50%, #1a1f3a 100%)',
+    trophyRange: [200, 500],
+    unlockRequirement: 200,
+    bosses: ['analog_overlord'],
+    atmosphere: 'Electric blue pulses, sine wave patterns',
+  },
+  {
+    id: 3,
+    name: 'Logic Forge',
+    icon: '\uD83D\uDD17',
+    description: 'Binary fires burn in the digital foundry.',
+    color1: '#2ecc71',
+    color2: '#27ae60',
+    accent: '#00ff88',
+    bgGradient: 'linear-gradient(180deg, #0a1a0f 0%, #0d2a18 50%, #1a1f3a 100%)',
+    trophyRange: [500, 900],
+    unlockRequirement: 500,
+    bosses: ['digital_phantom'],
+    atmosphere: 'Green matrix rain, binary code floating',
+  },
+  {
+    id: 4,
+    name: 'Oscillator Temple',
+    icon: '\uD83D\uDD2E',
+    description: 'Ancient crystals hum with resonant frequency.',
+    color1: '#9b59b6',
+    color2: '#8e44ad',
+    accent: '#c084fc',
+    bgGradient: 'linear-gradient(180deg, #1a0a28 0%, #2d0d47 50%, #1a1f3a 100%)',
+    trophyRange: [900, 1400],
+    unlockRequirement: 900,
+    bosses: ['the_oscillator'],
+    atmosphere: 'Purple crystal glow, oscillating waveforms',
+  },
+  {
+    id: 5,
+    name: 'Transistor Pit',
+    icon: '\uD83D\uDC80',
+    description: 'Where switching warriors are forged in silicon fire.',
+    color1: '#e74c3c',
+    color2: '#c0392b',
+    accent: '#ff4444',
+    bgGradient: 'linear-gradient(180deg, #1a0505 0%, #2d0a0a 50%, #1a1f3a 100%)',
+    trophyRange: [1400, 2000],
+    unlockRequirement: 1400,
+    bosses: ['analog_overlord'],
+    atmosphere: 'Red hot silicon, switching sparks',
+  },
+  {
+    id: 6,
+    name: 'Power Citadel',
+    icon: '\uD83D\uDD0B',
+    description: 'The fortress of voltage regulators and power stages.',
+    color1: '#f4a623',
+    color2: '#e67e22',
+    accent: '#ffd166',
+    bgGradient: 'linear-gradient(180deg, #1a1400 0%, #2d2200 50%, #1a1f3a 100%)',
+    trophyRange: [2000, 2800],
+    unlockRequirement: 2000,
+    bosses: ['power_tyrant'],
+    atmosphere: 'Golden power arcs, capacitor banks',
+  },
+  {
+    id: 7,
+    name: 'PCB Nexus',
+    icon: '\uD83D\uDCBB',
+    description: 'The motherboard of all arenas. Traces connect everything.',
+    color1: '#1abc9c',
+    color2: '#16a085',
+    accent: '#00ffcc',
+    bgGradient: 'linear-gradient(180deg, #0a1a18 0%, #0d2a25 50%, #1a1f3a 100%)',
+    trophyRange: [2800, 3800],
+    unlockRequirement: 2800,
+    bosses: ['pcb_demon'],
+    atmosphere: 'PCB trace patterns, via connections glowing',
+  },
+  {
+    id: 8,
+    name: 'RF Dominion',
+    icon: '\uD83D\uDCF6',
+    description: 'Electromagnetic waves rule the airwaves.',
+    color1: '#e67e22',
+    color2: '#d35400',
+    accent: '#ff9944',
+    bgGradient: 'linear-gradient(180deg, #1a0f00 0%, #2d1800 50%, #1a1f3a 100%)',
+    trophyRange: [3800, 5000],
+    unlockRequirement: 3800,
+    bosses: ['the_oscillator'],
+    atmosphere: 'Radio wave ripples, antenna silhouettes',
+  },
+  {
+    id: 9,
+    name: 'Signal Sanctum',
+    icon: '\uD83D\uDCCA',
+    description: 'Where analog and digital signals find harmony.',
+    color1: '#00d4ff',
+    color2: '#0099cc',
+    accent: '#66eeff',
+    bgGradient: 'linear-gradient(180deg, #001a28 0%, #002d47 50%, #1a1f3a 100%)',
+    trophyRange: [5000, 6500],
+    unlockRequirement: 5000,
+    bosses: ['analog_overlord', 'the_oscillator'],
+    atmosphere: 'Cyan signal waves, mixed domain patterns',
+  },
+  {
+    id: 10,
+    name: 'Embedded Core',
+    icon: '\uD83E\uDDE0',
+    description: 'The brain within the machine. ARM and RISC-V await.',
+    color1: '#7986a3',
+    color2: '#5a6b8a',
+    accent: '#a0b0cc',
+    bgGradient: 'linear-gradient(180deg, #0f1420 0%, #1a2235 50%, #1a1f3a 100%)',
+    trophyRange: [6500, 8500],
+    unlockRequirement: 6500,
+    bosses: ['digital_phantom'],
+    atmosphere: 'Processor die patterns, register banks',
+  },
+  {
+    id: 11,
+    name: 'Silicon Labyrinth',
+    icon: '\uD83D\uDC8E',
+    description: 'The deepest maze of semiconductor mastery.',
+    color1: '#f4a623',
+    color2: '#ffd166',
+    accent: '#ffe066',
+    bgGradient: 'linear-gradient(180deg, #1a1800 0%, #2d2800 50%, #1a1f3a 100%)',
+    trophyRange: [8500, 11000],
+    unlockRequirement: 8500,
+    bosses: ['power_tyrant', 'pcb_demon'],
+    atmosphere: 'Golden silicon crystal walls, laser beams',
+  },
+  {
+    id: 12,
+    name: 'Quantum Vault',
+    icon: '\uD83C\uDF00',
+    description: 'The final arena. Where masters become legends.',
+    color1: '#ff00ff',
+    color2: '#9b59b6',
+    accent: '#ff66ff',
+    bgGradient: 'linear-gradient(180deg, #1a001a 0%, #2d002d 50%, #1a1f3a 100%)',
+    trophyRange: [11000, Infinity],
+    unlockRequirement: 11000,
+    bosses: ['silicon_void', 'analog_overlord'],
+    atmosphere: 'Prismatic energy, quantum field distortion',
+  },
+];
+
+export const getArenaById = (id) => ARENAS.find(a => a.id === id);
+
+export const getCurrentArena = (masteryPoints) => {
+  for (let i = ARENAS.length - 1; i >= 0; i--) {
+    if (masteryPoints >= ARENAS[i].unlockRequirement) {
+      return ARENAS[i];
+    }
+  }
+  return ARENAS[0];
+};
+
+export const getNextArena = (currentArenaId) => {
+  return ARENAS.find(a => a.id === currentArenaId + 1) || null;
+};
+
+export const getArenaProgress = (masteryPoints, arena) => {
+  const next = getNextArena(arena.id);
+  if (!next) return 100;
+  const range = next.trophyRange[0] - arena.trophyRange[0];
+  const progress = masteryPoints - arena.trophyRange[0];
+  return Math.min(100, Math.max(0, (progress / range) * 100));
+};

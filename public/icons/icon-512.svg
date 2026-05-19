@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#0a0e1a"/>
+  <rect x="40" y="40" width="432" height="432" rx="60" fill="#111827" stroke="#2a3a5c" stroke-width="4"/>
+  <!-- Lightning bolt -->
+  <path d="M256 80 L200 256 L256 256 L200 432 L328 232 L264 232 L328 80 Z" fill="#f5a623" stroke="#ffd166" stroke-width="4"/>
+  <!-- Circuit traces -->
+  <line x1="100" y1="256" x2="170" y2="256" stroke="#00d4ff" stroke-width="4" opacity="0.5"/>
+  <line x1="342" y1="256" x2="412" y2="256" stroke="#00d4ff" stroke-width="4" opacity="0.5"/>
+  <circle cx="100" cy="256" r="8" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="412" cy="256" r="8" fill="#00d4ff" opacity="0.5"/>
+  <line x1="256" y1="400" x2="256" y2="440" stroke="#2ecc71" stroke-width="4" opacity="0.3"/>
+  <circle cx="256" cy="440" r="6" fill="#2ecc71" opacity="0.3"/>
+</svg>

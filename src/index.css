@@ -1,0 +1,559 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* CR Dark Blue backgrounds */
+  --color-bg-primary: #1a1f3a;
+  --color-bg-secondary: #252b4a;
+  --color-bg-card: #2a3158;
+  --color-bg-elevated: #1e2440;
+  --color-bg-panel: #1e2440;
+
+  /* CR Gold */
+  --color-gold: #f4a623;
+  --color-gold-light: #ffd166;
+  --color-gold-dark: #c4821a;
+  --color-gold-shine: #ffe599;
+
+  /* Rarity colors */
+  --color-common: #95a5a6;
+  --color-rare: #3498db;
+  --color-epic: #9b59b6;
+  --color-legendary: #f39c12;
+  --color-champion: #e74c3c;
+
+  /* UI accents */
+  --color-green-hp: #2ecc71;
+  --color-red-damage: #e74c3c;
+  --color-cyan-xp: #00d4ff;
+  --color-orange-btn: #e67e22;
+
+  /* Borders */
+  --color-border-dark: #0d1124;
+  --color-border-glow: rgba(244, 166, 35, 0.6);
+
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-muted: #8892b0;
+  --color-text-gold: #f4a623;
+
+  /* Legacy compat */
+  --color-green-common: #2ecc71;
+  --color-blue-rare: #3498db;
+  --color-purple-epic: #9b59b6;
+  --color-orange-legendary: #f39c12;
+  --color-red-danger: #e74c3c;
+  --color-cyan-accent: #00d4ff;
+
+  --font-game: 'Lilita One', cursive;
+  --font-rajdhani: 'Rajdhani', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1f3a;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Clash Royale diamond/rhombus patchwork texture */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23222d55' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%231a2340' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='60,0 120,60 60,120 0,60' fill='url(%23g)' stroke='%23273060' stroke-width='1.5'/%3E%3Cpolygon points='60,20 100,60 60,100 20,60' fill='%231c2548' stroke='%23262f5a' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1f3a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3158;
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════
+   CLASH ROYALE BUTTONS — .btn-cr
+   ═══════════════════════════════════════ */
+
+.btn-cr {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-family: 'Lilita One', cursive;
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #8b5e00;
+  border-bottom: 5px solid #8b5e00;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.1s;
+  transform: translateY(0);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.btn-cr:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #6b4400 !important;
+}
+
+.btn-cr:focus-visible {
+  outline: 2px solid #f4a623;
+  outline-offset: 2px;
+}
+
+/* Gold (default / battle) */
+.btn-cr-gold {
+  background: linear-gradient(180deg, #f9c74f 0%, #f4a623 50%, #c4821a 100%);
+  color: #3d2000;
+  box-shadow: 0 4px 0 #6b4400, 0 0 20px rgba(244,166,35,0.4);
+}
+.btn-cr-gold:hover {
+  box-shadow: 0 4px 0 #6b4400, 0 0 30px rgba(244,166,35,0.6);
+}
+
+/* Blue */
+.btn-cr-blue {
+  background: linear-gradient(180deg, #5dade2 0%, #2e86c1 50%, #1a5276 100%);
+  border-color: #154360;
+  border-bottom-color: #0d2b40;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 0 #0d2b40, 0 0 15px rgba(46,134,193,0.3);
+}
+
+/* Purple */
+.btn-cr-purple {
+  background: linear-gradient(180deg, #bb8fce 0%, #9b59b6 50%, #7d3c98 100%);
+  border-color: #5b2c6f;
+  border-bottom-color: #4a235a;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 0 #4a235a, 0 0 15px rgba(155,89,182,0.3);
+}
+
+/* Green */
+.btn-cr-green {
+  background: linear-gradient(180deg, #58d68d 0%, #2ecc71 50%, #27ae60 100%);
+  border-color: #1e8449;
+  border-bottom-color: #196f3d;
+  color: #0a2e1a;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 4px 0 #196f3d, 0 0 15px rgba(46,204,113,0.3);
+}
+
+/* Red */
+.btn-cr-red {
+  background: linear-gradient(180deg, #f1948a 0%, #e74c3c 50%, #c0392b 100%);
+  border-color: #922b21;
+  border-bottom-color: #7b241c;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 0 #7b241c, 0 0 15px rgba(231,76,60,0.3);
+}
+
+/* Orange */
+.btn-cr-orange {
+  background: linear-gradient(180deg, #f5b041 0%, #e67e22 50%, #ca6f1e 100%);
+  border-color: #935116;
+  border-bottom-color: #784212;
+  color: #3d2000;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 4px 0 #784212, 0 0 15px rgba(230,126,34,0.3);
+}
+
+/* Small variant */
+.btn-cr-sm {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border-bottom-width: 3px;
+}
+
+/* Keyboard focus styles for interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #f4a623;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+
+/* ═══════════════════════════════════════
+   GAME PANELS
+   ═══════════════════════════════════════ */
+
+.game-panel {
+  position: relative;
+  background: linear-gradient(180deg, #252b4a 0%, #1e2440 100%);
+  border: 2px solid #2a3158;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.game-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+.game-panel-dark {
+  background: linear-gradient(180deg, #1a1f3a 0%, #151a30 100%);
+  border-color: #2a3158;
+}
+
+/* ═══════════════════════════════════════
+   GLOW EFFECTS
+   ═══════════════════════════════════════ */
+
+.glow-gold {
+  box-shadow: 0 0 25px rgba(244,166,35,0.4), 0 0 50px rgba(244,166,35,0.15);
+}
+.glow-purple {
+  box-shadow: 0 0 25px rgba(155,89,182,0.4), 0 0 50px rgba(155,89,182,0.15);
+}
+.glow-blue {
+  box-shadow: 0 0 25px rgba(52,152,219,0.4), 0 0 50px rgba(52,152,219,0.15);
+}
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(0,212,255,0.4), 0 0 50px rgba(0,212,255,0.15);
+}
+.glow-green {
+  box-shadow: 0 0 25px rgba(46,204,113,0.4), 0 0 50px rgba(46,204,113,0.15);
+}
+.glow-red {
+  box-shadow: 0 0 25px rgba(231,76,60,0.4), 0 0 50px rgba(231,76,60,0.15);
+}
+
+/* ═══════════════════════════════════════
+   RARITY FRAMES
+   ═══════════════════════════════════════ */
+
+.rarity-common {
+  border: 2px solid #95a5a6;
+  box-shadow: 0 0 12px rgba(149,165,166,0.3), inset 0 0 12px rgba(149,165,166,0.05);
+}
+.rarity-rare {
+  border: 2px solid #3498db;
+  box-shadow: 0 0 12px rgba(52,152,219,0.3), inset 0 0 12px rgba(52,152,219,0.05);
+}
+.rarity-epic {
+  border: 2px solid #9b59b6;
+  box-shadow: 0 0 15px rgba(155,89,182,0.35), inset 0 0 15px rgba(155,89,182,0.05);
+}
+.rarity-legendary {
+  border: 2px solid #f39c12;
+  box-shadow: 0 0 20px rgba(243,156,18,0.4), inset 0 0 20px rgba(243,156,18,0.05);
+  animation: legendary-pulse 2s ease-in-out infinite;
+}
+.rarity-champion {
+  border: 2px solid #e74c3c;
+  box-shadow: 0 0 20px rgba(231,76,60,0.4), inset 0 0 20px rgba(231,76,60,0.05);
+  animation: legendary-pulse 2s ease-in-out infinite;
+}
+
+@keyframes legendary-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(243,156,18,0.4), inset 0 0 20px rgba(243,156,18,0.05); }
+  50% { box-shadow: 0 0 35px rgba(243,156,18,0.6), inset 0 0 25px rgba(243,156,18,0.1); }
+}
+
+/* ═══════════════════════════════════════
+   CARD SHINE SWEEP
+   ═══════════════════════════════════════ */
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%) rotate(25deg);
+  pointer-events: none;
+}
+
+.card-shine:hover::after {
+  animation: shine-sweep 0.6s ease-out;
+}
+
+/* ═══════════════════════════════════════
+   PARTICLE EFFECTS
+   ═══════════════════════════════════════ */
+
+@keyframes float-up {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-100px) scale(0); opacity: 0; }
+}
+
+@keyframes particle-burst {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+.particle {
+  animation: particle-burst 0.8s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════
+   XP / DAMAGE POPUPS
+   ═══════════════════════════════════════ */
+
+@keyframes xp-float {
+  0% { transform: translateY(0) scale(1.2); opacity: 1; }
+  100% { transform: translateY(-80px) scale(0.8); opacity: 0; }
+}
+
+.xp-float {
+  animation: xp-float 1.5s ease-out forwards;
+}
+
+@keyframes damage-pop {
+  0% { transform: translateY(0) scale(1.5); opacity: 1; }
+  50% { transform: translateY(-30px) scale(1.2); }
+  100% { transform: translateY(-60px) scale(0.8); opacity: 0; }
+}
+
+.damage-pop {
+  animation: damage-pop 1s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════
+   CHEST ANIMATIONS
+   ═══════════════════════════════════════ */
+
+@keyframes chest-shake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-6deg); }
+  40% { transform: rotate(6deg); }
+  60% { transform: rotate(-4deg); }
+  80% { transform: rotate(4deg); }
+}
+
+.chest-shake {
+  animation: chest-shake 0.5s ease-in-out;
+}
+
+@keyframes chest-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.chest-glow {
+  animation: chest-glow 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════
+   BATTLE EFFECTS
+   ═══════════════════════════════════════ */
+
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-8px, 4px); }
+  20% { transform: translate(8px, -4px); }
+  30% { transform: translate(-6px, 2px); }
+  40% { transform: translate(6px, -2px); }
+  50% { transform: translate(-4px, 4px); }
+  60% { transform: translate(4px, -2px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  90% { transform: translate(-1px, 1px); }
+}
+
+.screen-shake {
+  animation: screen-shake 0.5s ease-out;
+}
+
+@keyframes boss-hit {
+  0% { transform: scale(1); filter: brightness(1); }
+  20% { transform: scale(1.05); filter: brightness(2); }
+  40% { transform: scale(0.95); filter: brightness(1.5); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+.boss-hit {
+  animation: boss-hit 0.4s ease-out;
+}
+
+/* ═══════════════════════════════════════
+   ARENA FLOATING PARTICLES
+   ═══════════════════════════════════════ */
+
+@keyframes arena-particle {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-200px) translateX(var(--drift)) scale(0);
+    opacity: 0;
+  }
+}
+
+.arena-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: arena-particle var(--duration) ease-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* ═══════════════════════════════════════
+   LEVEL UP EFFECTS
+   ═══════════════════════════════════════ */
+
+@keyframes level-burst {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  50% { transform: scale(1.3) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.level-burst {
+  animation: level-burst 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ═══════════════════════════════════════
+   PROGRESS BARS (GAME STYLE)
+   ═══════════════════════════════════════ */
+
+.progress-bar-game {
+  position: relative;
+  height: 12px;
+  background: #0d1124;
+  border-radius: 6px;
+  border: 1px solid #2a3158;
+  overflow: hidden;
+}
+
+.progress-bar-game .fill {
+  position: relative;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.progress-bar-game .fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), transparent);
+  border-radius: 5px 5px 0 0;
+}
+
+/* ═══════════════════════════════════════
+   STAT BADGES
+   ═══════════════════════════════════════ */
+
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.2));
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ═══════════════════════════════════════
+   COMBO STREAK
+   ═══════════════════════════════════════ */
+
+@keyframes combo-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.combo-pulse {
+  animation: combo-pulse 0.3s ease-out;
+}
+
+/* ═══════════════════════════════════════
+   BATTLE BUTTON PULSE
+   ═══════════════════════════════════════ */
+
+@keyframes battle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.battle-pulse {
+  animation: battle-pulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════
+   CARD FLIP
+   ═══════════════════════════════════════ */
+
+@keyframes card-flip-in {
+  0% { transform: perspective(600px) rotateY(180deg) scale(0.8); opacity: 0; }
+  100% { transform: perspective(600px) rotateY(0deg) scale(1); opacity: 1; }
+}
+
+.card-flip-in {
+  animation: card-flip-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ═══════════════════════════════════════
+   UTILITY
+   ═══════════════════════════════════════ */
+
+.text-shadow-game {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+.border-bevel {
+  border: 2px solid rgba(255,255,255,0.1);
+  border-bottom-color: rgba(0,0,0,0.3);
+  border-right-color: rgba(0,0,0,0.3);
+}
+
+/* Game title font */
+.font-game {
+  font-family: 'Lilita One', cursive;
+}
